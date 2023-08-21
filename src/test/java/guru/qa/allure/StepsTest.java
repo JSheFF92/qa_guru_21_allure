@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -25,6 +26,7 @@ public class StepsTest {
     }
 
     @Test
+    @DisplayName("Тест с лямбда шагвми через step (name, () -> {})")
     public void testLambdaTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу", () -> {
@@ -43,6 +45,7 @@ public class StepsTest {
     }
 
     @Test
+    @DisplayName("Тест с аннотацией @Step")
     public void testAnnotatedStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         WebSteps steps = new WebSteps();
