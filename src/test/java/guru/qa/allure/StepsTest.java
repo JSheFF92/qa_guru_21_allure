@@ -26,7 +26,7 @@ public class StepsTest {
     }
 
     @Test
-    @DisplayName("Тест с лямбда шагвми через step (name, () -> {})")
+    @DisplayName("Тест с лямбда шагами через step (name, () -> {})")
     public void testLambdaTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем главную страницу", () -> {
