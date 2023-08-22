@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
-import static org.openqa.selenium.By.linkText;
 
 public class StepsTest {
 
@@ -36,9 +35,7 @@ public class StepsTest {
             $("[data-target='qbsearch-input.inputButtonText']").click();
             $("[data-target='query-builder.input']").setValue(REPOSITORY).pressEnter();
         });
-        step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
-            $(linkText(REPOSITORY)).click();
-        });
+
         step("Находим таб Issues ", () -> {
             $(withText(ISSUE)).should(Condition.exist);
         });
@@ -52,7 +49,7 @@ public class StepsTest {
 
         steps.openMainPage();
         steps.searchForRepository(REPOSITORY);
-        steps.clickOnRepositoryLink(REPOSITORY);
+
         steps.shouldSeeIssue(ISSUE);
     }
 }
