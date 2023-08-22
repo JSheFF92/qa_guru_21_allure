@@ -35,7 +35,6 @@ public class StepsTest {
             $("[data-target='qbsearch-input.inputButtonText']").click();
             $("[data-target='query-builder.input']").setValue(REPOSITORY).pressEnter();
         });
-
         step("Находим таб Issues ", () -> {
             $(withText(ISSUE)).should(Condition.exist);
         });
@@ -46,10 +45,8 @@ public class StepsTest {
     public void testAnnotatedStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         WebSteps steps = new WebSteps();
-
         steps.openMainPage();
         steps.searchForRepository(REPOSITORY);
-
         steps.shouldSeeIssue(ISSUE);
     }
 }
