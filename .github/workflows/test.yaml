@@ -13,7 +13,7 @@ jobs:
       # настраиваем java
       - uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
-          java-version: '8'
+          distribution: 'Amazon Corretto'
+          java-version: '17'
       # запускаем тесты
       - run: ./gradlew clean test
